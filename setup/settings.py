@@ -40,6 +40,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'setup.urls'
 
+#Diretorio onde ficam todas as paginas HTML
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -104,6 +105,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+#Diretorio onde ficam todos os arquivos estaticos de cada aplicação
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'setup/static')
+]
+
+#Caminho absoluto onde os arquivos staticos serão copiados para
+#o python fazer a implantação.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
