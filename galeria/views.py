@@ -9,4 +9,4 @@ from django.shortcuts import render
 #return render(request, 'index.html')-> busca na pasta templates, indicado como diretorio base para templates.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'galeria/index.html')
