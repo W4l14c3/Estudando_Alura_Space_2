@@ -107,6 +107,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 #Diretorio onde ficam todos os arquivos estaticos de cada aplicação
+#Essa configuração é usada para adicionar caminhos para que o Django posso procurar arquivos estaticos.
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'setup/static')
 ]
