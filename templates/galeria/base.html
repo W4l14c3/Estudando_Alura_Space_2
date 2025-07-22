@@ -14,7 +14,9 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    {% include 'galeria/partials/_paginainicial.html' %}<!--Desafio concluido!-->
+    {% block content %}{% endblock %} <!--Esse bloco vai ser carrregado com imagem.html ou index.html-->
+    {% include 'galeria/partials/_footer.html'%}<!--Aqui o bloco vai ser carregado com o _footer.html-->
 </body>
 
 </html>
