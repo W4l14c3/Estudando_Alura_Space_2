@@ -8,8 +8,17 @@ from django.shortcuts import render
 #todas as requisições de pagina irão renderizar automaticamente da pasta templates
 #return render(request, 'index.html')-> busca na pasta templates, indicado como diretorio base para templates.
 
+
+
 def index(request):
-    return render(request, 'galeria/index.html')
+    #Dicionario de dados para as fotos que serão renderizadas por view.
+    dados = { 
+        1: {"nome": "Nebulosa de Carina", 
+            "legenda": "webbtelescope.org / NASA / James Webb"},
+        2: {"nome": "Galáxia NGC 1079", 
+            "legenda": "nasa.org / NASA / Hubble"}
+            }
+    return render(request, 'galeria/index.html', {"cards": dados})
 
 #Responsavel por renderizar a pagina imagem.html
 def imagem(request):
