@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from galeria.models import Fotografia
 #from django.http import HttpResponse lib contem funções de resposta.
 
 #Responsavel pela pagina principal.
@@ -11,14 +12,10 @@ from django.shortcuts import render
 
 
 def index(request):
-    #Dicionario de dados para as fotos que serão renderizadas por view.
-    dados = { 
-        1: {"nome": "Nebulosa de Carina", 
-            "legenda": "webbtelescope.org / NASA / James Webb"},
-        2: {"nome": "Galáxia NGC 1079", 
-            "legenda": "nasa.org / NASA / Hubble"}
-            }
-    return render(request, 'galeria/index.html', {"cards": dados})
+    #Comando que vai buscar todos os objetos no modelo Fotografia.
+    #E manda para a variavel fotografias.
+    fotografias = Fotografia.objects.all()
+    return render(request, 'galeria/index.html', {"cards": fotografias})
 
 #Responsavel por renderizar a pagina imagem.html
 def imagem(request):
