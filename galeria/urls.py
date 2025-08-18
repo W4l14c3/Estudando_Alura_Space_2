@@ -13,6 +13,6 @@ pois os links estão com codigo embedado python.
 
 urlpatterns = [
     path('', index, name='index'),
-    path('imagem/', imagem, name='imagem'),
+    path('imagem/<int:foto_id>', imagem, name='imagem'),
 
 ]

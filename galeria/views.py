@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from galeria.models import Fotografia
+
 #from django.http import HttpResponse lib contem funções de resposta.
 
 #Responsavel pela pagina principal.
@@ -18,5 +19,6 @@ def index(request):
     return render(request, 'galeria/index.html', {"cards": fotografias})
 
 #Responsavel por renderizar a pagina imagem.html
-def imagem(request):
-    return render(request, 'galeria/imagem.html')
+def imagem(request, foto_id):
+    fotografia = get_object_or_404(Fotografia, pk=foto_id)#Pega o objeto ou retorna um erro 404
+    return render(request, 'galeria/imagem.html', {"fotografia": fotografia}) 
