@@ -15,7 +15,8 @@ from galeria.models import Fotografia
 def index(request):
     #Comando que vai buscar todos os objetos no modelo Fotografia.
     #E manda para a variavel fotografias.
-    fotografias = Fotografia.objects.filter(publicada = True)
+    #Ordena por data e filtra por verdadeiro
+    fotografias = Fotografia.objects.order_by("data_edicao").filter(publicada = True)
 
     return render(request, 'galeria/index.html', {"cards": fotografias})
 
