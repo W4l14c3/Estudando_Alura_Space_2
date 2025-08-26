@@ -104,17 +104,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+#Após o comando colectstatic o django vai procurar nesta pasta.
 STATIC_URL = 'static/'
 
+#Ambiente de desenvolvimento.
 #Diretorio onde ficam todos os arquivos estaticos de cada aplicação
 #Essa configuração é usada para adicionar caminhos para que o Django posso procurar arquivos estaticos.
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'setup/static')
 ]
 
+#Ambiente de produção.
 #Caminho absoluto onde os arquivos staticos serão copiados para
 #o python fazer a implantação.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Media 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

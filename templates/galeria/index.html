@@ -22,11 +22,17 @@
                     <div class="cards">
                         <h2 class="cards__titulo">Navegue pela galeria</h2>
                         <ul class="cards__lista">
+                            <!--Se cards for verdadeiro(tem contudo)-->
                             {% if cards %}
                             {% for fotografia in cards %}
                             <li class="card">
-                                <a href="{% url 'imagem' fotografia.id %}">
-                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/'%}{{fotografia.foto}}" alt="foto">
+                                <a href="{% url 'imagem' fotografia.id %}"> 
+                                    <!--Verifica se fotografia esta vazio ou nulo-->
+                                    {% if fotografia.foto ==  "" or fotografia.foto == null%}
+                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
+                                    {% else %}
+                                        <img class="card__imagem" src="{{ fotografia.foto.url }}" alt="foto">
+                                    {% endif %}
                                 </a>
                                 <span class="card__tag">Estrelas</span>
                                 <div class="card__info">
