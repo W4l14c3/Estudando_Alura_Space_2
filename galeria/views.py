@@ -25,3 +25,5 @@ def imagem(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)#Pega o objeto ou retorna um erro 404
     return render(request, 'galeria/imagem.html', {"fotografia": fotografia}) 
 
+def buscar(request):
+    return render(request, "galeria/buscar.html")
