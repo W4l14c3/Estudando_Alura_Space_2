@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #Abaixo, navegamos da pasta galeria até o arquivo urls.py e herdamos tudo.
     path('', include('galeria.urls')),
+    #A linha abaixo vai servir os arquivos de midia(como imagems) durante o desenvolvimento.
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

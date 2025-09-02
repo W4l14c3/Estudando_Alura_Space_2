@@ -18,5 +18,6 @@ class Fotografia(models.Model):
     publicada = models.BooleanField(default=False)
     data_edicao = models.DateTimeField(default=datetime.now, blank=False)
 
+    #Retorna o nome do objeto adcionado
     def __str__(self):
-        return f"Fotografia [nome={self.nome}]"
+        return self.nome
