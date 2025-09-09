@@ -29,7 +29,9 @@ def buscar(request):
     fotografias = Fotografia.objects.order_by("data_edicao").filter(publicada = True)
 
     if "buscar" in request.GET:
+        #Vai pegar os dados enviados pelo submit
         nome_a_buscar = request.GET['buscar']
         if nome_a_buscar:
+            #__icontains: funciona como o %like% do sql
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar)
     return render(request, "galeria/buscar.html", {"cards": fotografias})

@@ -1,0 +1,29 @@
+1) Pasta static duplicada
+
+Primeiro, precisamos diferenciar entre dois ambientes: local e produção.
+
+    Local: Ambiente onde você desenvolve o projeto, no seu próprio computador.
+    Produção: Ambiente onde o projeto é disponibilizado para os usuários, em um endereço publicado na internet.
+
+Quando você executa o comando python manage.py collectstatic, o Django coleta todos os arquivos estáticos das pastas especificadas em STATICFILES_DIRS e os copia para o diretório definido em STATIC_ROOT. Isso é feito para facilitar a distribuição dos arquivos estáticos em ambientes de produção, onde normalmente você usa um servidor web dedicado para guardar esses arquivos.
+
+Portanto, é normal que os arquivos estáticos apareçam em dois lugares:
+
+    setup/static: Local onde você desenvolve e mantém seus arquivos estáticos.
+    static (no root do projeto): Local onde o Django coleta todos os arquivos estáticos para servir em produção.
+
+Você não deve deletar a pasta setup/static porque é nela que você continuará desenvolvendo e atualizando seus arquivos estáticos em sua máquina. Já a pasta static no root do projeto é gerada automaticamente pelo Django e é usada principalmente para servir os arquivos em produção.
+
+Em resumo: a duplicação da pasta static é esperada e ocorre por motivos diferentes. Uma pasta estará no seu computador para desenvolvimento (setup/static) e a outra é usada quando você faz o deploy do site em produção (static).
+
+2) Uso de {% static %} no template
+
+A tag {% static %} é usada para gerar URLs corretas para os arquivos estáticos. A principal vantagem de usar {% static 'path/to/file' %} em vez de escrever o caminho diretamente é que ela torna seu código mais flexível e robusto. Vantagens:
+
+    Portabilidade: Se você mudar a configuração do STATIC_URL (por exemplo, para usar um CDN), não precisará alterar todos os caminhos nos seus templates. Por exemplo, ao usar {% static 'styles/style.css' %}, o Django gera a URL correta baseada na configuração de STATIC_URL. Se STATIC_URL for alterado para https://cdn.example.com/static/, todos os seus templates serão automaticamente atualizados para usar o novo caminho.
+
+    Gestão Centralizada dos Arquivos Estáticos: Com {% static %}, você gerencia as URLs dos arquivos estáticos de forma centralizada. Se a localização dos arquivos mudar, você só precisa atualizar a configuração de arquivos estáticos do Django.
+
+    Conformidade com as Melhores Práticas do Django: Seguir as práticas recomendadas pela documentação do Django leva a um código mais robusto e fácil de manter.
+
+Espero ter ajudado. Conte com o apoio do Fórum na sua jornada. Fico à disposição. Abraços e bons estudos!
