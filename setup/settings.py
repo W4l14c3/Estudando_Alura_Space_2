@@ -25,7 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galeria.apps.GaleriaConfig',#Essa mudança permite que personalizemos o app por meio de sua classe.
+    'galeria.apps.GaleriaConfig'#na pasta apps é onde ficam todas as configurações da aplicação.
+    'usuarios.apps.UsuariosConfig'
+    ,
+
 ]
 
 MIDDLEWARE = [
